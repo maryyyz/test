@@ -11,7 +11,7 @@ add_executable(1166A 1166A.c)
 add_executable(841A 841A.c)
 add_executable(1025A 1025A.c)
 add_executable(1011A 1011A.c
-        test2.c)
+        libs/data_structures/vector/test2.c)
 add_executable(37A 37A.c)
 add_executable(1020B 1020B.c)
 add_executable(672B 672B.c)
@@ -20,7 +20,7 @@ add_executable(131B 131B.c)
 add_executable(main main.c)
 add_executable(main2 main2.c)
 add_executable(test test.c
-        test2.c)
+        libs/data_structures/vector/test2.c)
 
 add_subdirectory(libs)
 target_link_libraries(course data_structures)
