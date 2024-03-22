@@ -85,19 +85,75 @@ void outputMatrices(matrix *ms, int nMatrices) {
     }
 }
 
-void swapRows(matrix *m, int i1, int i2) {
-    assert(i1 >= 0 && i1 < m->nRows);
-    assert(i2 >= 0 && i2 < m->nRows);
+
+void swapRows(matrix m, int i1, int i2) {
+    assert(i1 >= 0 && i1 < m.nRows);
+    assert(i2 >= 0 && i2 < m.nRows);
 
     if (i1 == i2) {
-        return; // Нет необходимости обменивать строки, если индексы совпадают
+        return;
     }
 
-    // Обмен строк без использования дополнительной памяти
-    for (int j = 0; j < m->nCols; j++) {
-        int *temp = m->data[i1 * m->nCols + j];
-        m->data[i1 * m->nCols + j] = m->data[i2 * m->nCols + j];
-        m->data[i2 * m->nCols + j] = temp;
+    for (int j = 0; j < m.nCols; j++) {
+        int *temp = m.data[i1 * m.nCols + j];
+        m.data[i1 * m.nCols + j] = m.data[i2 * m.nCols + j];
+        m.data[i2 * m.nCols + j] = temp;
     }
 }
+
+void insertionSortRowsMatrixByRowCriteria(matrix m, int (*criteria)(int*, int)) {
+    int *criteriaValues = (int*)malloc(m.nRows * sizeof(int));
+
+    for (int i = 0; i < m.nRows; i++) {
+        int rowSum = 0;
+        for (int j = 0; j < m.nCols; j++) {
+            rowSum += *m.data[i * m.nCols + j];
+        }
+        criteriaValues[i] = criteria(&m.data[i * m.nCols], m.nCols);
+    }
+
+    for (int i = 1; i < m.nRows; i++) {
+        int key = criteriaValues[i];
+        int *keyRow = m.data[i * m.nCols];
+        int j = i - 1;
+
+        while (j >= 0 && criteriaValues[j] > key) {
+            criteriaValues[j + 1] = criteriaValues[j];
+            for (int k = 0; k < m.nCols; k++) {
+                m.data[(j + 1) * m.nCols + k] = m.data[j * m.nCols + k];
+            }
+            j--;
+        }
+
+        criteriaValues[j + 1] = key;
+        for (int k = 0; k < m.nCols; k++) {
+            m.data[(j + 1) * m.nCols + k] = keyRow;
+        }
+    }
+
+    free(criteriaValues);
+}
+
+void selectionSortColsMatrixByColCriteria(matrix m, int (*criteria)(int*, int)) {
+    for (int i = 0; i < m.nCols; i++) {
+        for (int j = i + 1; j < m.nCols; j++) {
+            int sum1 = 0;
+            int sum2 = 0;
+
+            for (int k = 0; k < m.nRows; k++) {
+                sum1 += *m.data[k * m.nCols + i];
+                sum2 += *m.data[k * m.nCols + j];
+            }
+
+            if (criteria(&sum2, 1) < criteria(&sum1, 1)) {
+                for (int k = 0; k < m.nRows; k++) {
+                    int *temp = m.data[k * m.nCols + i];
+                    m.data[k * m.nCols + i] = m.data[k * m.nCols + j];
+                    m.data[k * m.nCols + j] = temp;
+                }
+            }
+        }
+    }
+}
+
 
