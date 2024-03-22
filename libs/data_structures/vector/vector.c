@@ -1,6 +1,5 @@
 #include "vector.h"
 #include <stdio.h>
-#include <stdint.h>
 #include <stdlib.h>
 
 // Создание вектора заданного размера
