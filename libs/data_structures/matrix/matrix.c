@@ -41,3 +41,45 @@ void freeMemMatrices(matrix *ms, int nMatrices) {
 
     free(ms);
 }
+
+void inputMatrix(matrix *m) {
+    printf("Введите количество строк матрицы: ");
+    scanf("%d", &m->nRows);
+
+    printf("Введите количество столбцов матрицы: ");
+    scanf("%d", &m->nCols);
+
+    m->data = (int*)malloc(m->nRows * m->nCols * sizeof(int));
+
+    printf("Введите элементы матрицы:\n");
+    for (int i = 0; i < m->nRows; i++)
+        for (int j = 0; j < m->nCols; j++) {
+            printf("Элемент [%d][%d]: ", i, j);
+            scanf("%d", &m->data[i * m->nCols + j]);
+        }
+
+}
+
+void inputMatrices(matrix *ms, int nMatrices) {
+    for (int i = 0; i < nMatrices; i++) {
+        inputMatrix(&ms[i]);
+    }
+}
+
+void outputMatrix(matrix m) {
+    printf("Матрица %dx%d:\n", m.nRows, m.nCols);
+    for (int i = 0; i < m.nRows; i++) {
+        for (int j = 0; j < m.nCols; j++) {
+            printf("%d ", m.data[i * m.nCols + j]);
+        }
+        printf("\n");
+    }
+}
+
+void outputMatrices(matrix *ms, int nMatrices) {
+    for (int i = 0; i < nMatrices; i++) {
+        printf("Матрица %d:\n", i + 1);
+        outputMatrix(ms[i]);
+        printf("\n");
+    }
+}

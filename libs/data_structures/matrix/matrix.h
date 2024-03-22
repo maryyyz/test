@@ -20,5 +20,16 @@ matrix getMemMatrix(int nRows, int nCols);
 //размещает в динамической памяти массив из nMatrices матриц размером nRows на nCols. Возвращает указатель на нулевую матрицу.
 matrix *getMemArrayOfMatrices(int nMatrices, int nRows, int nCols);
 
+//ввод матрицы m.
+void inputMatrix(matrix *m);
+
+//ввод массива из nMatrices матриц, хранящейся по адресу ms.
+void inputMatrices(matrix *ms, int nMatrices);
+
+//вывод матрицы m.
+void outputMatrix(matrix m);
+
+//вывод массива из nMatrices матриц, хранящейся по адресу ms.
+void outputMatrices(matrix *ms, int nMatrices);
 
 #endif //COURSE_MATRIX_H
