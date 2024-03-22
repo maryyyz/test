@@ -11,6 +11,7 @@ add_library(data_structures
         vectorvoid/vectorvoid.c
         matrix/matrix.h
         matrix/matrix.c
+        matrix/matrix_test.c
 )
 
 target_link_libraries(data_structures algorithms)

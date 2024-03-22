@@ -619,6 +619,12 @@ build libs/data_structures/CMakeFiles/data_structures.dir/matrix/matrix.c.o: C_C
   OBJECT_DIR = libs/data_structures/CMakeFiles/data_structures.dir
   OBJECT_FILE_DIR = libs/data_structures/CMakeFiles/data_structures.dir/matrix
 
+build libs/data_structures/CMakeFiles/data_structures.dir/matrix/matrix_test.c.o: C_COMPILER__data_structures_unscanned_Debug /home/mari/CLionProjects/course/libs/data_structures/matrix/matrix_test.c || cmake_object_order_depends_target_data_structures
+  DEP_FILE = libs/data_structures/CMakeFiles/data_structures.dir/matrix/matrix_test.c.o.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = libs/data_structures/CMakeFiles/data_structures.dir
+  OBJECT_FILE_DIR = libs/data_structures/CMakeFiles/data_structures.dir/matrix
+
 
 # =============================================================================
 # Link build statements for STATIC_LIBRARY target data_structures
@@ -627,7 +633,7 @@ build libs/data_structures/CMakeFiles/data_structures.dir/matrix/matrix.c.o: C_C
 #############################################
 # Link the static library libs/data_structures/libdata_structures.a
 
-build libs/data_structures/libdata_structures.a: C_STATIC_LIBRARY_LINKER__data_structures_Debug libs/data_structures/CMakeFiles/data_structures.dir/bitset/bitset.c.o libs/data_structures/CMakeFiles/data_structures.dir/unorderedset/unorderedset.c.o libs/data_structures/CMakeFiles/data_structures.dir/orderedset/orderedset.c.o libs/data_structures/CMakeFiles/data_structures.dir/vector/vector.c.o libs/data_structures/CMakeFiles/data_structures.dir/vectorvoid/vectorvoid.c.o libs/data_structures/CMakeFiles/data_structures.dir/matrix/matrix.c.o || libs/algorithms/libalgorithms.a
+build libs/data_structures/libdata_structures.a: C_STATIC_LIBRARY_LINKER__data_structures_Debug libs/data_structures/CMakeFiles/data_structures.dir/bitset/bitset.c.o libs/data_structures/CMakeFiles/data_structures.dir/unorderedset/unorderedset.c.o libs/data_structures/CMakeFiles/data_structures.dir/orderedset/orderedset.c.o libs/data_structures/CMakeFiles/data_structures.dir/vector/vector.c.o libs/data_structures/CMakeFiles/data_structures.dir/vectorvoid/vectorvoid.c.o libs/data_structures/CMakeFiles/data_structures.dir/matrix/matrix.c.o libs/data_structures/CMakeFiles/data_structures.dir/matrix/matrix_test.c.o || libs/algorithms/libalgorithms.a
   LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = libs/data_structures/CMakeFiles/data_structures.dir
   POST_BUILD = :
