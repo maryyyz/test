@@ -200,3 +200,40 @@ bool isSymmetricMatrix(matrix *m) {
     return true;
 }
 
+void transposeSquareMatrix(matrix *m) {
+    if (m->nRows != m->nCols) {
+        printf("Матрица не квадратная, транспонирование невозможно.\n");
+        return;
+    }
+
+    int *temp;
+    for (int i = 0; i < m->nRows; i++) {
+        for (int j = i + 1; j < m->nCols; j++) {
+            // Меняем местами элементы относительно главной диагонали
+            temp = m->data[i * m->nCols + j];
+            m->data[i * m->nCols + j] = m->data[j * m->nCols + i];
+            m->data[j * m->nCols + i] = temp;
+        }
+    }
+}
+
+void transposeMatrix(matrix *m) {
+    int temp;
+    int *transposedMatrix = (int *)malloc(m->nRows * m->nCols * sizeof(int));
+
+    for (int i = 0; i < m->nRows; i++) {
+        for (int j = 0; j < m->nCols; j++) {
+            transposedMatrix[j * m->nRows + i] = *m->data[i * m->nCols + j];
+        }
+    }
+
+    free(m->data);
+
+    m->data = transposedMatrix;
+
+    int tempRows = m->nRows;
+    m->nRows = m->nCols;
+    m->nCols = tempRows;
+}
+
+
