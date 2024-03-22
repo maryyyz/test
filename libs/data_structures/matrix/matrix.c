@@ -1,6 +1,7 @@
 #include "matrix.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <assert.h>
 
 matrix getMemMatrix(int nRows, int nCols) {
     int **values = (int **) malloc(sizeof(int*) * nRows);
@@ -83,3 +84,20 @@ void outputMatrices(matrix *ms, int nMatrices) {
         printf("\n");
     }
 }
+
+void swapRows(matrix *m, int i1, int i2) {
+    assert(i1 >= 0 && i1 < m->nRows);
+    assert(i2 >= 0 && i2 < m->nRows);
+
+    if (i1 == i2) {
+        return; // Нет необходимости обменивать строки, если индексы совпадают
+    }
+
+    // Обмен строк без использования дополнительной памяти
+    for (int j = 0; j < m->nCols; j++) {
+        int *temp = m->data[i1 * m->nCols + j];
+        m->data[i1 * m->nCols + j] = m->data[i2 * m->nCols + j];
+        m->data[i2 * m->nCols + j] = temp;
+    }
+}
+
