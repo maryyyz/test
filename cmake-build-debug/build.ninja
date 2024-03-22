@@ -242,11 +242,11 @@ build CMakeFiles/1011A.dir/1011A.c.o: C_COMPILER__1011A_unscanned_Debug /home/ma
   OBJECT_DIR = CMakeFiles/1011A.dir
   OBJECT_FILE_DIR = CMakeFiles/1011A.dir
 
-build CMakeFiles/1011A.dir/test2.c.o: C_COMPILER__1011A_unscanned_Debug /home/mari/CLionProjects/course/test2.c || cmake_object_order_depends_target_1011A
-  DEP_FILE = CMakeFiles/1011A.dir/test2.c.o.d
+build CMakeFiles/1011A.dir/libs/data_structures/vector/test2.c.o: C_COMPILER__1011A_unscanned_Debug /home/mari/CLionProjects/course/libs/data_structures/vector/test2.c || cmake_object_order_depends_target_1011A
+  DEP_FILE = CMakeFiles/1011A.dir/libs/data_structures/vector/test2.c.o.d
   FLAGS = -g -std=gnu11 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles/1011A.dir
-  OBJECT_FILE_DIR = CMakeFiles/1011A.dir
+  OBJECT_FILE_DIR = CMakeFiles/1011A.dir/libs/data_structures/vector
 
 
 # =============================================================================
@@ -256,7 +256,7 @@ build CMakeFiles/1011A.dir/test2.c.o: C_COMPILER__1011A_unscanned_Debug /home/ma
 #############################################
 # Link the executable 1011A
 
-build 1011A: C_EXECUTABLE_LINKER__1011A_Debug CMakeFiles/1011A.dir/1011A.c.o CMakeFiles/1011A.dir/test2.c.o
+build 1011A: C_EXECUTABLE_LINKER__1011A_Debug CMakeFiles/1011A.dir/1011A.c.o CMakeFiles/1011A.dir/libs/data_structures/vector/test2.c.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/1011A.dir
   POST_BUILD = :
@@ -496,11 +496,11 @@ build CMakeFiles/test.dir/test.c.o: C_COMPILER__test_unscanned_Debug /home/mari/
   OBJECT_DIR = CMakeFiles/test.dir
   OBJECT_FILE_DIR = CMakeFiles/test.dir
 
-build CMakeFiles/test.dir/test2.c.o: C_COMPILER__test_unscanned_Debug /home/mari/CLionProjects/course/test2.c || cmake_object_order_depends_target_test
-  DEP_FILE = CMakeFiles/test.dir/test2.c.o.d
+build CMakeFiles/test.dir/libs/data_structures/vector/test2.c.o: C_COMPILER__test_unscanned_Debug /home/mari/CLionProjects/course/libs/data_structures/vector/test2.c || cmake_object_order_depends_target_test
+  DEP_FILE = CMakeFiles/test.dir/libs/data_structures/vector/test2.c.o.d
   FLAGS = -g -std=gnu11 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles/test.dir
-  OBJECT_FILE_DIR = CMakeFiles/test.dir
+  OBJECT_FILE_DIR = CMakeFiles/test.dir/libs/data_structures/vector
 
 
 # =============================================================================
@@ -510,7 +510,7 @@ build CMakeFiles/test.dir/test2.c.o: C_COMPILER__test_unscanned_Debug /home/mari
 #############################################
 # Link the executable test
 
-build test: C_EXECUTABLE_LINKER__test_Debug CMakeFiles/test.dir/test.c.o CMakeFiles/test.dir/test2.c.o
+build test: C_EXECUTABLE_LINKER__test_Debug CMakeFiles/test.dir/test.c.o CMakeFiles/test.dir/libs/data_structures/vector/test2.c.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/test.dir
   POST_BUILD = :
