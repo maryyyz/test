@@ -261,3 +261,15 @@ long long findSumOfMaxesOfPseudoDiagonal(matrix m) {
 
     return sum;
 }
+
+int getMinInArea(matrix m, int startRow, int startCol, int endRow, int endCol) {
+    int minElement = m.data[startRow][startCol];
+    for (int i = startRow; i <= endRow; i++) {
+        for (int j = startCol; j <= endCol; j++) {
+            if (m.data[i][j] < minElement) {
+                minElement = m.data[i][j];
+            }
+        }
+    }
+    return minElement;
+}

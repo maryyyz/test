@@ -61,3 +61,6 @@ matrix createMatrixRec(int rows, int cols);
 
 // Функция для поиска суммы максимальных элементов псевдодиагоналей матрицы
 long long findSumOfMaxesOfPseudoDiagonal(matrix m);
+
+// Функция для нахождения минимального элемента в области матрицы
+int getMinInArea(matrix m, int startRow, int startCol, int endRow, int endCol);
