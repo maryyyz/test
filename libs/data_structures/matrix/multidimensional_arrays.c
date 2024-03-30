@@ -183,3 +183,41 @@ void transposeIfMatrixHasNotEqualSumOfRows(matrix m) {
         printf("Суммы элементов строк матрицы равны, транспонирование не выполняется.\n");
     }
 }
+
+bool isMutuallyInverseMatrices(matrix m1, matrix m2) {
+    if (m1.size != m2.size) {
+        printf("Матрицы не квадратные или имеют разный размер.\n");
+        return false;
+    }
+
+    matrix temp = createMatrix(m1.size);
+
+    for (int i = 0; i < m1.size; i++) {
+        for (int j = 0; j < m1.size; j++) {
+            temp.data[i][j] = 0;
+            for (int k = 0; k < m1.size; k++) {
+                temp.data[i][j] += m1.data[i][k] * m2.data[k][j];
+            }
+        }
+    }
+
+    bool isIdentity = true;
+    for (int i = 0; i < m1.size; i++) {
+        for (int j = 0; j < m1.size; j++) {
+            if (i == j && temp.data[i][j] != 1) {
+                isIdentity = false;
+                break;
+            } else if (i != j && temp.data[i][j] != 0) {
+                isIdentity = false;
+                break;
+            }
+        }
+        if (!isIdentity) {
+            break;
+        }
+    }
+
+    freeMatrix(temp);
+
+    return isIdentity;
+}

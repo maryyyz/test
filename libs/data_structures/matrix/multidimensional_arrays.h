@@ -52,3 +52,6 @@ long long getSum(int *a, int n);
 
 // Функция для транспонирования матрицы, если суммы элементов строк не равны
 void transposeIfMatrixHasNotEqualSumOfRows(matrix m);
+
+// Функция для проверки, являются ли две матрицы взаимно обратными
+bool isMutuallyInverseMatrices(matrix m1, matrix m2);
