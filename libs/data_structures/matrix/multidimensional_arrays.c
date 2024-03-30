@@ -145,3 +145,41 @@ void freeMatrix(matrix m) {
     }
     free(m.data);
 }
+
+bool isUnique(long long *a, int n) {
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (a[i] == a[j]) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+long long getSum(int *a, int n) {
+    long long sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += a[i];
+    }
+    return sum;
+}
+
+void transposeIfMatrixHasNotEqualSumOfRows(matrix m) {
+    long long rowSums[m.size];
+    for (int i = 0; i < m.size; i++) {
+        rowSums[i] = getSum(m.data[i], m.size);
+    }
+    if (isUnique(rowSums, m.size)) {
+        for (int i = 0; i < m.size; i++) {
+            for (int j = i + 1; j < m.size; j++) {
+                int temp = m.data[i][j];
+                m.data[i][j] = m.data[j][i];
+                m.data[j][i] = temp;
+            }
+        }
+        printf("Матрица успешно транспонирована:\n");
+    } else {
+        printf("Суммы элементов строк матрицы равны, транспонирование не выполняется.\n");
+    }
+}

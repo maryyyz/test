@@ -7,6 +7,8 @@
 
 #endif //COURSE_MULTIDIMENSIONAL_ARRAYS_H
 
+#include <stdbool.h>
+
 typedef struct {
     int **data;
     int nRows;
@@ -41,3 +43,12 @@ void getSquareOfMatrixIfSymmetric(matrix *m);
 
 // Освобождение памяти, выделенной для матрицы
 void freeMatrix(matrix m);
+
+// Функция для проверки, есть ли в массиве уникальные элементы
+bool isUnique(long long *a, int n);
+
+// Функция для вычисления суммы элементов массива
+long long getSum(int *a, int n);
+
+// Функция для транспонирования матрицы, если суммы элементов строк не равны
+void transposeIfMatrixHasNotEqualSumOfRows(matrix m);
