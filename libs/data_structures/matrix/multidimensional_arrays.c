@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "multidimensional_arrays.h"
 #include "matrix.h"
+#include <limits.h>
 
 void swapRowsWithMinMax(matrix m) {
     int minRowIndex = 0;
@@ -220,4 +221,43 @@ bool isMutuallyInverseMatrices(matrix m1, matrix m2) {
     freeMatrix(temp);
 
     return isIdentity;
+}
+
+matrix createMatrixRec(int Rows, int Cols) {
+    matrix m;
+    m.nRows = Rows;
+    m.nCols = Cols;
+    m.data = malloc(Rows * sizeof(int *));
+    for (int i = 0; i < Rows; i++) {
+        m.data[i] = malloc(Cols * sizeof(int));
+    }
+    return m;
+}
+
+long long findSumOfMaxesOfPseudoDiagonal(matrix m) {
+    int n = m.nRows;
+    int m_plus_n_minus_1 = m.nRows + m.nCols - 1;
+
+    int *maxElements = malloc(m_plus_n_minus_1 * sizeof(int));
+    for (int i = 0; i < m_plus_n_minus_1; i++) {
+        maxElements[i] = INT_MIN;
+    }
+
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m.nCols; j++) {
+            int pseudoDiagonalIndex = i + j;
+            if (m.data[i][j] > maxElements[pseudoDiagonalIndex]) {
+                maxElements[pseudoDiagonalIndex] = m.data[i][j];
+            }
+        }
+    }
+
+    long long sum = 0;
+    for (int i = 0; i < m_plus_n_minus_1; i++) {
+        sum += maxElements[i];
+    }
+
+    free(maxElements);
+
+    return sum;
 }

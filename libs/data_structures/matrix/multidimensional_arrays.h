@@ -55,3 +55,9 @@ void transposeIfMatrixHasNotEqualSumOfRows(matrix m);
 
 // Функция для проверки, являются ли две матрицы взаимно обратными
 bool isMutuallyInverseMatrices(matrix m1, matrix m2);
+
+// Функция для создания прямоугольной матрицы
+matrix createMatrixRec(int rows, int cols);
+
+// Функция для поиска суммы максимальных элементов псевдодиагоналей матрицы
+long long findSumOfMaxesOfPseudoDiagonal(matrix m);
