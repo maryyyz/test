@@ -62,3 +62,35 @@ void sortRowsByMaxElement(matrix m) {
     }
     free(maxElements);
 }
+
+int getMin(int *a, int n) {
+    int min = a[0];
+    for (int i = 1; i < n; i++) {
+        if (a[i] < min) {
+            min = a[i];
+        }
+    }
+    return min;
+}
+
+void sortColsByMinElement(matrix m) {
+    int *minElements = malloc(m.nCols * sizeof(int));
+    for (int j = 0; j < m.nCols; j++) {
+        minElements[j] = getMin(&m.data[0][j], m.nRows);
+    }
+    for (int j = 0; j < m.nCols - 1; j++) {
+        for (int k = 0; k < m.nCols - j - 1; k++) {
+            if (minElements[k] > minElements[k + 1]) {
+                for (int i = 0; i < m.nRows; i++) {
+                    int temp = m.data[i][k];
+                    m.data[i][k] = m.data[i][k + 1];
+                    m.data[i][k + 1] = temp;
+                }
+                int tempMin = minElements[k];
+                minElements[k] = minElements[k + 1];
+                minElements[k + 1] = tempMin;
+            }
+        }
+    }
+    free(minElements);
+}
