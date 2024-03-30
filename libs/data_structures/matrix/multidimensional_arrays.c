@@ -32,3 +32,33 @@ void swapRowsWithMinMax(matrix m) {
 
     swapRows(m, minRowIndex, maxRowIndex);
 }
+
+int getMax(int *a, int n) {
+    int max = a[0];
+    for (int i = 1; i < n; i++) {
+        if (a[i] > max) {
+            max = a[i];
+        }
+    }
+    return max;
+}
+
+void sortRowsByMaxElement(matrix m) {
+    int *maxElements = malloc(m.nRows * sizeof(int));
+    for (int i = 0; i < m.nRows; i++) {
+        maxElements[i] = getMax(m.data[i], m.nCols);
+    }
+    for (int i = 0; i < m.nRows - 1; i++) {
+        for (int j = 0; j < m.nRows - i - 1; j++) {
+            if (maxElements[j] > maxElements[j + 1]) {
+                int *tempRow = m.data[j];
+                m.data[j] = m.data[j + 1];
+                m.data[j + 1] = tempRow;
+                int tempMax = maxElements[j];
+                maxElements[j] = maxElements[j + 1];
+                maxElements[j + 1] = tempMax;
+            }
+        }
+    }
+    free(maxElements);
+}

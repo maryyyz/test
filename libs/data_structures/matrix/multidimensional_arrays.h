@@ -17,3 +17,8 @@ typedef struct {
 //а затем вызывает функцию swapRows, чтобы поменять местами строки с этими индексами.
 void swapRowsWithMinMax(matrix m);
 
+// Функция для нахождения максимального элемента в строке
+int getMax(int *a, int n);
+
+// Функция для сортировки строк матрицы по неубыванию наибольших элементов строк
+void sortRowsByMaxElement(matrix m);
