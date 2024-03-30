@@ -11,6 +11,7 @@ typedef struct {
     int **data;
     int nRows;
     int nCols;
+    int size;
 } matrix;
 
 //Фуекция находит индексы минимального и максимального элементов в матрице,
@@ -28,3 +29,15 @@ int getMin(int *a, int n);
 
 // Функция для упорядочения столбцов матрицы по неубыванию минимальных элементов столбцов
 void sortColsByMinElement(matrix m);
+
+// Создание квадратной матрицы
+matrix createMatrix(int size);
+
+// Функция для перемножения двух матриц
+matrix mulMatrices(matrix m1, matrix m2);
+
+// Функция для проверки симметричности матрицы и возведения ее в квадрат, если она симметрична
+void getSquareOfMatrixIfSymmetric(matrix *m);
+
+// Освобождение памяти, выделенной для матрицы
+void freeMatrix(matrix m);

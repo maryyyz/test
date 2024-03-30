@@ -94,3 +94,54 @@ void sortColsByMinElement(matrix m) {
     }
     free(minElements);
 }
+
+matrix createMatrix(int size) {
+    matrix m;
+    m.size = size;
+    m.data = malloc(size * sizeof(int *));
+    for (int i = 0; i < size; i++) {
+        m.data[i] = malloc(size * sizeof(int));
+    }
+    return m;
+}
+
+
+matrix mulMatrices(matrix m1, matrix m2) {
+    matrix result = createMatrix(m1.size);
+    for (int i = 0; i < m1.size; i++) {
+        for (int j = 0; j < m1.size; j++) {
+            result.data[i][j] = 0;
+            for (int k = 0; k < m1.size; k++) {
+                result.data[i][j] += m1.data[i][k] * m2.data[k][j];
+            }
+        }
+    }
+    return result;
+}
+
+void getSquareOfMatrixIfSymmetric(matrix *m) {
+    int symmetric = 1;
+    for (int i = 0; i < m->size; i++) {
+        for (int j = 0; j < m->size; j++) {
+            if (m->data[i][j] != m->data[j][i]) {
+                symmetric = 0;
+                break;
+            }
+        }
+        if (!symmetric) {
+            break;
+        }
+    }
+    if (symmetric) {
+        matrix squared = mulMatrices(*m, *m);
+        freeMatrix(*m);
+        *m = squared;
+    }
+}
+
+void freeMatrix(matrix m) {
+    for (int i = 0; i < m.size; i++) {
+        free(m.data[i]);
+    }
+    free(m.data);
+}
