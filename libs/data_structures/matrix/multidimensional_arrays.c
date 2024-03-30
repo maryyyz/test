@@ -3,6 +3,7 @@
 #include "multidimensional_arrays.h"
 #include "matrix.h"
 #include <limits.h>
+#include <math.h>
 
 void swapRowsWithMinMax(matrix m) {
     int minRowIndex = 0;
@@ -272,4 +273,28 @@ int getMinInArea(matrix m, int startRow, int startCol, int endRow, int endCol) {
         }
     }
     return minElement;
+}
+
+float getDistance(int *a, int n) {
+    float sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += a[i] * a[i];
+    }
+    return sqrt(sum);
+}
+
+void insertionSortRowsMatrixByRowCriteriaF(matrix m, float (*criteria)(int *, int)) {
+    for (int i = 1; i < m.nRows; i++) {
+        int *currentRow = m.data[i];
+        int j = i - 1;
+        while (j >= 0 && criteria(m.data[j], m.nCols) > criteria(currentRow, m.nCols)) {
+            m.data[j + 1] = m.data[j];
+            j--;
+        }
+        m.data[j + 1] = currentRow;
+    }
+}
+
+void sortByDistances(matrix m) {
+    insertionSortRowsMatrixByRowCriteriaF(m, getDistance);
 }

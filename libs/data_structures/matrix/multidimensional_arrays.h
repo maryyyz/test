@@ -64,3 +64,12 @@ long long findSumOfMaxesOfPseudoDiagonal(matrix m);
 
 // Функция для нахождения минимального элемента в области матрицы
 int getMinInArea(matrix m, int startRow, int startCol, int endRow, int endCol);
+
+// Функция для вычисления расстояния от точки до начала координат в многомерном пространстве
+float getDistance(int *a, int n);
+
+// Функция сортировки вставками для матрицы с использованием критерия criteria
+void insertionSortRowsMatrixByRowCriteriaF(matrix m, float (*criteria)(int *, int));
+
+// Функция для сортировки массива точек по неубыванию их расстояний до начала координат
+void sortByDistances(matrix m);
