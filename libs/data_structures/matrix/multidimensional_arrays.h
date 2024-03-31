@@ -115,4 +115,10 @@ int matrixNorm(matrix m);
 // Функция для поиска матрицы с наименьшей нормой в массиве и вывода её на экран
 void printMatrixWithMinNorm(matrix *matrices, int n);
 
+// Функция для нахождения минимума из двух чисел
+int min2(int a, int b);
+
+// Функция для определения количества "особых" элементов в матрице
+int getNSpecialElement2(matrix m);
+
 #endif //COURSE_MULTIDIMENSIONAL_ARRAYS_H

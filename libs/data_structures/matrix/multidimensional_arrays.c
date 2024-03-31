@@ -484,3 +484,37 @@ void printMatrixWithMinNorm(matrix *matrices, int n) {
         printf("\n");
     }
 }
+
+int min2(int a, int b) {
+    return (a < b) ? a : b;
+}
+
+int getNSpecialElement2(matrix m) {
+    int nSpecialElements = 0;
+
+    for (int i = 0; i < m.nRows; i++) {
+        for (int j = 0; j < m.nCols; j++) {
+            int isSpecial = 1;
+
+            for (int k = 0; k < j; k++) {
+                if (m.data[i][k] >= m.data[i][j]) {
+                    isSpecial = 0;
+                    break;
+                }
+            }
+
+            for (int k = j + 1; k < m.nCols; k++) {
+                if (m.data[i][k] <= m.data[i][j]) {
+                    isSpecial = 0;
+                    break;
+                }
+            }
+
+            if (isSpecial) {
+                nSpecialElements++;
+            }
+        }
+    }
+
+    return nSpecialElements;
+}
