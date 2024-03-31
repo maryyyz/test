@@ -109,4 +109,10 @@ int countZeroRows(matrix m);
 // Функция для вывода матриц с наибольшим числом нулевых строк
 void printMatrixWithMaxZeroRows(matrix *ms, int nMatrix);
 
+// Функция для вычисления нормы матрицы (максимум абсолютных значений её элементов)
+int matrixNorm(matrix m);
+
+// Функция для поиска матрицы с наименьшей нормой в массиве и вывода её на экран
+void printMatrixWithMinNorm(matrix *matrices, int n);
+
 #endif //COURSE_MULTIDIMENSIONAL_ARRAYS_H
