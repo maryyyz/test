@@ -5,7 +5,6 @@
 #ifndef COURSE_MULTIDIMENSIONAL_ARRAYS_H
 #define COURSE_MULTIDIMENSIONAL_ARRAYS_H
 
-#endif //COURSE_MULTIDIMENSIONAL_ARRAYS_H
 
 #include <stdbool.h>
 
@@ -73,3 +72,14 @@ void insertionSortRowsMatrixByRowCriteriaF(matrix m, float (*criteria)(int *, in
 
 // Функция для сортировки массива точек по неубыванию их расстояний до начала координат
 void sortByDistances(matrix m);
+
+// Функция для сравнения двух элементов типа long long (используется при сортировке)
+int cmp_long_long(const void *pa, const void *pb);
+
+// Функция для подсчета количества уникальных элементов в отсортированном массиве
+int countNUnique(long long *a, int n);
+
+// Функция для подсчета количества классов эквивалентных строк матрицы
+int countEqClassesByRowsSum(matrix m);
+
+#endif //COURSE_MULTIDIMENSIONAL_ARRAYS_H
