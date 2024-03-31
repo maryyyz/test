@@ -133,4 +133,10 @@ double getCosine(int *a, int *b, int n);
 // Функция для определения индекса вектора из матрицы, образующего максимальный угол с данным вектором
 int getVectorIndexWithMaxAngle(matrix m, int *b);
 
+// Функция для вычисления скалярного произведения строки на столбец
+long long getScalarProductRowAndCol(matrix m, int i, int j);
+
+// Функция для нахождения скалярного произведения строки с наибольшим элементом на столбец с наименьшим элементом
+long long getSpecialScalarProduct(matrix m, int n);
+
 #endif //COURSE_MULTIDIMENSIONAL_ARRAYS_H
