@@ -121,4 +121,16 @@ int min2(int a, int b);
 // Функция для определения количества "особых" элементов в матрице
 int getNSpecialElement2(matrix m);
 
+// Функция для вычисления скалярного произведения двух векторов
+double getScalarProduct(int *a, int *b, int n);
+
+// Функция для вычисления длины вектора
+double getVectorLength(int *a, int n);
+
+// Функция для вычисления косинуса угла между двумя векторами
+double getCosine(int *a, int *b, int n);
+
+// Функция для определения индекса вектора из матрицы, образующего максимальный угол с данным вектором
+int getVectorIndexWithMaxAngle(matrix m, int *b);
+
 #endif //COURSE_MULTIDIMENSIONAL_ARRAYS_H
