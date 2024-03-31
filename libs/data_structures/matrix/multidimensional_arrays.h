@@ -91,4 +91,15 @@ int getLeftMin(matrix m);
 // Функция для обмена предпоследней строки с первым столбцом, содержащим минимальный элемент
 void swapPenultimateRow(matrix m, int minCol);
 
+// Функция для проверки, упорядочены ли элементы массива по неубыванию
+bool isNonDescendingSorted(int *a, int n);
+
+// Функция для проверки, упорядочены ли строки матрицы по неубыванию
+bool hasAllNonDescendingRows(matrix m);
+
+// Функция для подсчета количества матриц с упорядоченными по неубыванию строками
+int countNonDescendingRowsMatrices(matrix *ms, int nMatrix);
+
+
+
 #endif //COURSE_MULTIDIMENSIONAL_ARRAYS_H
