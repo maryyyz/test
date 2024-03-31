@@ -85,4 +85,10 @@ int countEqClassesByRowsSum(matrix m);
 // Функция для вычисления количества "особых" элементов в матрице
 int getNSpecialElement(matrix m);
 
+// Функция для нахождения первого столбца с минимальным элементом
+int getLeftMin(matrix m);
+
+// Функция для обмена предпоследней строки с первым столбцом, содержащим минимальный элемент
+void swapPenultimateRow(matrix m, int minCol);
+
 #endif //COURSE_MULTIDIMENSIONAL_ARRAYS_H
