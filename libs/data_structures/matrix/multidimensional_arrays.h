@@ -82,4 +82,7 @@ int countNUnique(long long *a, int n);
 // Функция для подсчета количества классов эквивалентных строк матрицы
 int countEqClassesByRowsSum(matrix m);
 
+// Функция для вычисления количества "особых" элементов в матрице
+int getNSpecialElement(matrix m);
+
 #endif //COURSE_MULTIDIMENSIONAL_ARRAYS_H

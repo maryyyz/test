@@ -334,3 +334,21 @@ int countEqClassesByRowsSum(matrix m) {
 
     return uniqueCount;
 }
+
+int getNSpecialElement(matrix m) {
+    int count = 0;
+    for (int j = 0; j < m.nCols; j++) {
+        for (int i = 0; i < m.nRows; i++) {
+            int sum = 0;
+            for (int k = 0; k < m.nRows; k++) {
+                if (k != i) {
+                    sum += m.data[k][j];
+                }
+            }
+            if (m.data[i][j] > sum) {
+                count++;
+            }
+        }
+    }
+    return count;
+}
