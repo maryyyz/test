@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <ctype.h>
 
 size_t stringLength(const char *str) {
     const char *ptr = str;
@@ -26,4 +27,11 @@ char* find(char *begin, char *end, int ch) {
         begin++;
     }
     return end;
+}
+
+char* findNonSpace(char *begin) {
+    while (*begin != '\0' && isspace(*begin)) {
+        begin++;
+    }
+    return begin;
 }
