@@ -71,3 +71,20 @@ char* copy(const char *beginSource, const char *endSource, char *beginDestinatio
 
     return beginDestination + (endSource - beginSource);
 }
+
+char* copyIf(char *beginSource, const char *endSource, char *beginDestination, int (*f)(int)) {
+    char *dest = beginDestination;
+
+    while (beginSource < endSource) {
+        if (f(*beginSource)) {
+            *dest++ = *beginSource;
+        }
+        beginSource++;
+    }
+
+    return dest;
+}
+
+int isAlpha(int c) {
+    return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z');
+}
