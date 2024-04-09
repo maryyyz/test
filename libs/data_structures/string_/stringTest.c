@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <memory.h>
 #include "string_.h"
 
 void test_stringLength() {
@@ -147,4 +148,16 @@ void test_my_strcmp() {
     } else {
         printf("'%s' does not come after '%s'.\n", str5, str6);
     }
+}
+
+void test_copy() {
+    const char *source = "Hello, world!";
+    const char *endSource = source + strlen(source);
+
+    char destination[50];
+
+    char *nextFree = copy(source, endSource, destination);
+
+    printf("Copied data: %s\n", destination);
+    printf("Next free fragment: %s\n", nextFree);
 }

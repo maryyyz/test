@@ -36,4 +36,8 @@ char* findSpaceReverse(char *rbegin, const char *rend);
 //равны, иначе – положительное значение.
 int my_strcmp(const char *lhs, const char *rhs);
 
+//записывает по адресу beginDestination
+//фрагмент памяти, начиная с адреса beginSource до endSource
+char* copy(const char *beginSource, const char *endSource, char *beginDestination);
+
 #endif //COURSE_STRING__H
