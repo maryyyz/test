@@ -40,4 +40,11 @@ int my_strcmp(const char *lhs, const char *rhs);
 //фрагмент памяти, начиная с адреса beginSource до endSource
 char* copy(const char *beginSource, const char *endSource, char *beginDestination);
 
+//записывает по адресу beginDestination элементы из фрагмента
+// памяти начиная с beginSource pаканчивая endSource, удовлетворяющие функции-предикату
+char* copyIf(char *beginSource, const char *endSource, char *beginDestination, int (*f)(int));
+
+// Функция-предикат для тестирования
+int isAlpha(int c);
+
 #endif //COURSE_STRING__H

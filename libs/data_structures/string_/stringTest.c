@@ -161,3 +161,15 @@ void test_copy() {
     printf("Copied data: %s\n", destination);
     printf("Next free fragment: %s\n", nextFree);
 }
+
+void test_copyIf() {
+    char source[] = "Hello, world!";
+    const char *endSource = source + sizeof(source) - 1;
+
+    char destination[50];
+
+    char *nextFree = copyIf(source, endSource, destination, isAlpha);
+
+    printf("Copied data: %s\n", destination);
+    printf("Next free fragment: %s\n", nextFree);
+}
