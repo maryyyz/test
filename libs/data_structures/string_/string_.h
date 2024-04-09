@@ -20,4 +20,8 @@ char* find(char *begin, char *end, int ch);
 // расположенный на ленте памяти, начиная с begin и заканчивая ноль-символом
 char* findNonSpace(char *begin);
 
+//возвращает указатель на первый пробельный символ,
+// расположенный на ленте памяти начиная с адреса begin или на первый ноль-символ.
+char* findSpace(char *begin);
+
 #endif //COURSE_STRING__H

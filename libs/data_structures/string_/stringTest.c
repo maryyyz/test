@@ -79,3 +79,15 @@ void test_findNonSpace() {
     }
 }
 
+void test_findSpace() {
+    char test_string[] = "Hello, World!   ";
+    char *begin = test_string;
+
+    char *found_space = findSpace(begin);
+
+    if (*found_space != '\0') {
+        printf("First space character found at index: %ld\n", found_space - begin);
+    } else {
+        printf("No space characters found.\n");
+    }
+}
