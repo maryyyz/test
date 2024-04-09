@@ -17,3 +17,13 @@ size_t my_strlen(const char *str) {
 
     return (size_t)(ptr - str);
 }
+
+char* find(char *begin, char *end, int ch) {
+    while (begin != end) {
+        if (*begin == ch) {
+            return begin;
+        }
+        begin++;
+    }
+    return end;
+}
