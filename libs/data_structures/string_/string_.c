@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <ctype.h>
+#include <memory.h>
 
 size_t stringLength(const char *str) {
     const char *ptr = str;
@@ -63,4 +64,10 @@ int my_strcmp(const char *lhs, const char *rhs) {
         rhs++;
     }
     return *lhs - *rhs;
+}
+
+char* copy(const char *beginSource, const char *endSource, char *beginDestination) {
+    memcpy(beginDestination, beginSource, endSource - beginSource);
+
+    return beginDestination + (endSource - beginSource);
 }
