@@ -173,3 +173,16 @@ void test_copyIf() {
     printf("Copied data: %s\n", destination);
     printf("Next free fragment: %s\n", nextFree);
 }
+
+void test_copyIfReverse() {
+    char source[] = "Hello, world!";
+    char *rbeginSource = source + sizeof(source) - 2;
+    const char *rendSource = source - 1;
+
+    char destination[50];
+    char *beginDestination = destination + sizeof(destination) - 2;
+
+    char *result = copyIfReverse(rbeginSource, rendSource, beginDestination, isAlpha);
+
+    printf("Copied data: %s\n", result);
+}

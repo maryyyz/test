@@ -47,4 +47,8 @@ char* copyIf(char *beginSource, const char *endSource, char *beginDestination, i
 // Функция-предикат для тестирования
 int isAlpha(int c);
 
+//записывает по адресу beginDestination элементы из фрагмента памяти начиная с rbeginSource
+//заканчивая rendSource, удовлетворяющие функции-предикату
+char* copyIfReverse(char *rbeginSource, const char *rendSource, char *beginDestination, int (*f)(int));
+
 #endif //COURSE_STRING__H
