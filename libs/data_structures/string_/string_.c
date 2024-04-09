@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <ctype.h>
 #include <memory.h>
 
@@ -87,4 +86,18 @@ char* copyIf(char *beginSource, const char *endSource, char *beginDestination, i
 
 int isAlpha(int c) {
     return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z');
+}
+
+char* copyIfReverse(char *rbeginSource, const char *rendSource, char *beginDestination, int (*f)(int)) {
+    char *dest = beginDestination;
+
+    while (rbeginSource >= rendSource) {
+        if (f(*rbeginSource)) {
+            *dest = *rbeginSource;
+            dest--;
+        }
+        rbeginSource--;
+    }
+
+    return beginDestination;
 }
