@@ -294,7 +294,6 @@ void test_FindSumOfMaxesOfPseudoDiagonal() {
         printf("\n");
     }
 
-    // Вызываем функцию для тестирования
     long long sum = findSumOfMaxesOfPseudoDiagonal(m);
     printf("Сумма максимумов псевдодиагоналей: %lld\n", sum);
 
