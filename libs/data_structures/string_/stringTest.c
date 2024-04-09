@@ -94,16 +94,28 @@ void test_findSpace() {
 
 void test_findNonSpaceReverse() {
     char test_string[] = "   Hello, World!   ";
-    char *rbegin = test_string + sizeof(test_string) - 1; // Указатель на нуль-символ
-    const char *rend = test_string - 1; // Указатель перед началом строки
+    char *rbegin = test_string + sizeof(test_string) - 1;
+    const char *rend = test_string - 1;
 
-    // Поиск первого справа символа, отличного от пробельных
     char *found_non_space_reverse = findNonSpaceReverse(rbegin, rend);
 
-    // Вывод результата
     if (found_non_space_reverse != rend) {
         printf("Last non-space character found at index: %ld\n", rbegin - found_non_space_reverse - 1);
     } else {
         printf("No non-space characters found.\n");
+    }
+}
+
+void test_findSpaceReverse() {
+    char test_string[] = "   Hello, World!   ";
+    char *rbegin = test_string + sizeof(test_string) - 1;
+    const char *rend = test_string - 1;
+
+    char *found_space_reverse = findSpaceReverse(rbegin, rend);
+
+    if (found_space_reverse != rend) {
+        printf("Last space character found at index: %ld\n", rbegin - found_space_reverse - 1);
+    } else {
+        printf("No space characters found.\n");
     }
 }

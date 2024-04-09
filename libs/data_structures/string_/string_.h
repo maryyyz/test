@@ -28,4 +28,7 @@ char* findSpace(char *begin);
 //расположенный на ленте памяти, начиная с rbegin и заканчивая rend
 char* findNonSpaceReverse(char *rbegin, const char *rend);
 
+//возвращает указатель на первый пробельный символ справа, начиная с rbegin и заканчивая rend
+char* findSpaceReverse(char *rbegin, const char *rend);
+
 #endif //COURSE_STRING__H
