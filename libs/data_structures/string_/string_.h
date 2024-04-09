@@ -9,4 +9,8 @@
 //функция поиска длины строки
 size_t stringLength(const char *str);
 
+//возвращает количество символов в строке (не считая ноль-символ)
+size_t my_strlen(const char *str);
+
+
 #endif //COURSE_STRING__H
