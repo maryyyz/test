@@ -24,4 +24,8 @@ char* findNonSpace(char *begin);
 // расположенный на ленте памяти начиная с адреса begin или на первый ноль-символ.
 char* findSpace(char *begin);
 
+//возвращает указатель на первый справа символ, отличный от пробельных,
+//расположенный на ленте памяти, начиная с rbegin и заканчивая rend
+char* findNonSpaceReverse(char *rbegin, const char *rend);
+
 #endif //COURSE_STRING__H
