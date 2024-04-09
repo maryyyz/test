@@ -44,3 +44,24 @@ void test_my_strlen() {
         }
     }
 }
+
+void test_find() {
+    char test_string[] = "Hello, World!";
+    char *begin = test_string;
+    char *end = test_string + sizeof(test_string) - 1;
+
+    char *found_o = find(begin, end, 'o');
+    char *found_x = find(begin, end, 'x');
+
+    if (found_o != end) {
+        printf("Found 'o' at index: %ld\n", found_o - begin);
+    } else {
+        printf("Character 'o' not found.\n");
+    }
+
+    if (found_x != end) {
+        printf("Found 'x' at index: %ld\n", found_x - begin);
+    } else {
+        printf("Character 'x' not found.\n");
+    }
+}
