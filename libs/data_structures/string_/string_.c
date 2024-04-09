@@ -56,3 +56,11 @@ char* findSpaceReverse(char *rbegin, const char *rend) {
     }
     return rbegin;
 }
+
+int my_strcmp(const char *lhs, const char *rhs) {
+    while (*lhs && *rhs && *lhs == *rhs) {
+        lhs++;
+        rhs++;
+    }
+    return *lhs - *rhs;
+}
