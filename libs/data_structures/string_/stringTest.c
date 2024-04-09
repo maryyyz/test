@@ -119,3 +119,32 @@ void test_findSpaceReverse() {
         printf("No space characters found.\n");
     }
 }
+
+void test_my_strcmp() {
+    const char *str1 = "hello";
+    const char *str2 = "hello";
+    printf("Test 1: ");
+    if (my_strcmp(str1, str2) == 0) {
+        printf("Strings are equal.\n");
+    } else {
+        printf("Strings are not equal.\n");
+    }
+
+    const char *str3 = "apple";
+    const char *str4 = "banana";
+    printf("Test 2: ");
+    if (my_strcmp(str3, str4) < 0) {
+        printf("'%s' comes before '%s'.\n", str3, str4);
+    } else {
+        printf("'%s' does not come before '%s'.\n", str3, str4);
+    }
+
+    const char *str5 = "zebra";
+    const char *str6 = "dog";
+    printf("Test 3: ");
+    if (my_strcmp(str5, str6) > 0) {
+        printf("'%s' comes after '%s'.\n", str5, str6);
+    } else {
+        printf("'%s' does not come after '%s'.\n", str5, str6);
+    }
+}

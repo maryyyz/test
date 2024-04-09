@@ -31,4 +31,9 @@ char* findNonSpaceReverse(char *rbegin, const char *rend);
 //возвращает указатель на первый пробельный символ справа, начиная с rbegin и заканчивая rend
 char* findSpaceReverse(char *rbegin, const char *rend);
 
+//возвращает отрицательное значение, если lhs располагается до rhs
+//в лексикографическом порядке (как в словаре), значение 0, если lhs и rhs
+//равны, иначе – положительное значение.
+int my_strcmp(const char *lhs, const char *rhs);
+
 #endif //COURSE_STRING__H
