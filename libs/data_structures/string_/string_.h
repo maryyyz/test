@@ -16,4 +16,8 @@ size_t my_strlen(const char *str);
 //адресами begin и end не включая end
 char* find(char *begin, char *end, int ch);
 
+//возвращает указатель на первый символ, отличный от пробельных,
+// расположенный на ленте памяти, начиная с begin и заканчивая ноль-символом
+char* findNonSpace(char *begin);
+
 #endif //COURSE_STRING__H
