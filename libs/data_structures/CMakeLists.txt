@@ -18,7 +18,7 @@ add_library(data_structures
         matrix/multidimensional_test.c
         string_/tasks/string_.h
         string_/stringTest.c
-        string_/string_.c
+        string_/tasks/string_.c
         string_/tasks/task1.c
         string_/tasks/task2.c
         string_/tasks/task3.c

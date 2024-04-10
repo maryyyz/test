@@ -2,6 +2,7 @@
 #include <memory.h>
 #include <stdio.h>
 #include <stdbool.h>
+#include "string_.h"
 
 size_t stringLength(const char *str) {
     const char *ptr = str;

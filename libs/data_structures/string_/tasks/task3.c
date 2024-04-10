@@ -16,14 +16,59 @@ void getDigitsAtBeginOfLetterAtEnd(char *beginString) {
     }
 }
 
+void transformString(char *s) {
+    char *start = s;
+    char *end = s;
+
+    while (*end) {
+        while (*end && !isspace(*end)) {
+            end++;
+        }
+
+        char *digitPtr = start;
+        char *letterPtr = start;
+
+        while (start < end) {
+            if (isdigit(*start)) {
+                *digitPtr++ = *start++;
+            } else {
+                start++;
+            }
+        }
+
+        while (letterPtr < end) {
+            if (!isdigit(*letterPtr)) {
+                *digitPtr++ = *letterPtr++;
+            } else {
+                letterPtr++;
+            }
+        }
+
+        start = end;
+        while (*start && isspace(*start)) {
+            start++;
+        }
+        end = start;
+    }
+}
+
 void test_getDigitsAtBeginOfLetterAtEnd() {
     char source[] = "Hi123 Hello456";
     getDigitsAtBeginOfLetterAtEnd(source);
     ASSERT_STRING("123Hi 456Hello", source);
 }
 
+void test_transformString() {
+    char str[] = "abc123 def456ghi789";
+
+    transformString(str);
+
+    printf("Transformed string: %s\n", str);
+}
+
 void test() {
-    test_getDigitsAtBeginOfLetterAtEnd() ;
+    test_getDigitsAtBeginOfLetterAtEnd();
+    test_transformString();
 }
 
 int main() {
