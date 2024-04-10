@@ -23,6 +23,7 @@ add_library(data_structures
         string_/tasks/task2.c
         string_/tasks/task3.c
         string_/tasks/task4.c
+        string_/tasks/task5.c
 )
 
 target_link_libraries(data_structures algorithms)
