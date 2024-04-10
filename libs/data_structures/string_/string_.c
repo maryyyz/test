@@ -1,5 +1,7 @@
 #include <ctype.h>
 #include <memory.h>
+#include <stdio.h>
+#include <stdbool.h>
 
 size_t stringLength(const char *str) {
     const char *ptr = str;
@@ -100,4 +102,55 @@ char* copyIfReverse(char *rbeginSource, const char *rendSource, char *beginDesti
     }
 
     return beginDestination;
+}
+
+int getWord(char *beginSearch, WordDescriptor *word) {
+    word->begin = findNonSpace(beginSearch);
+    if (*word->begin == '\0')
+        return 0;
+
+    word->end = findSpace(word->begin);
+
+    return 1;
+}
+
+char* getEndOfString(char* s) {
+    char* end = s;
+
+    while(*end) {
+        end++;
+    }
+
+    end--;
+
+    return end;
+}
+
+bool getWordReverse(char *rbegin, char *rend, WordDescriptor *word) {
+    word->end = rbegin;
+    word->begin = findSpaceReverse(rbegin, rend);
+
+    if (word->begin == rend)
+        return 0;
+
+    word->begin = findNonSpaceReverse(word->begin, rend);
+
+    return 1;
+}
+
+void digitToStart(WordDescriptor word) {
+    char *endStringBuffer = copy(word.begin, word.end, _stringBuffer);
+    char *recPosition = copyIfReverse(endStringBuffer - 1, _stringBuffer - 1, word.begin, isdigit);
+    copyIf(_stringBuffer, endStringBuffer, recPosition, isalpha);
+}
+
+void assertString(const char *expected, char *got,char const *fileName, char const *funcName, int line) {
+    if (strcmp(expected, got)) {
+        fprintf(stderr, "File %s\n", fileName);
+        fprintf(stderr, "%s - failed on line %d\n", funcName, line);
+        fprintf(stderr, "Expected: \"%s\"\n", expected);
+        fprintf(stderr, "Got: \"%s\"\n\n", got);
+    } else {
+        fprintf(stderr, "%s - OK\n", funcName);
+    }
 }

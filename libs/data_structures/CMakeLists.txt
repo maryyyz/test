@@ -16,9 +16,10 @@ add_library(data_structures
         matrix/multidimensional_arrays.h
         matrix/multidimensional_arrays.c
         matrix/multidimensional_test.c
-        string_/string_.h
+        string_/tasks/string_.h
         string_/stringTest.c
         string_/string_.c
+        string_/tasks/task1.c
 )
 
 target_link_libraries(data_structures algorithms)
