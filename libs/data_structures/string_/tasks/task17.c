@@ -40,7 +40,7 @@ void removeWordsWithDuplicates(char *s) {
     }
 }
 
-void testRemoveWordsWithDuplicates() {
+void test_RemoveWordsWithDuplicates() {
     char s1[] = "This is a test string with words containing duplicates like book and door";
     char s2[] = "One two three four five";
     char s3[] = "Hello world good morning";
@@ -64,7 +64,7 @@ void testRemoveWordsWithDuplicates() {
 }
 
 int main() {
-    testRemoveWordsWithDuplicates();
+    test_RemoveWordsWithDuplicates();
 
     return 0;
 }
