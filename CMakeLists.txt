@@ -11,7 +11,8 @@ add_executable(1166A 1166A.c)
 add_executable(841A 841A.c)
 add_executable(1025A 1025A.c)
 add_executable(1011A 1011A.c
-        libs/data_structures/vector/test2.c)
+        libs/data_structures/vector/test2.c
+        libs/files/1_task.c)
 add_executable(37A 37A.c)
 add_executable(1020B 1020B.c)
 add_executable(672B 672B.c)
