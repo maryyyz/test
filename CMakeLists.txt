@@ -17,7 +17,8 @@ add_executable(1011A 1011A.c
         libs/files/3_task.c
         libs/files/4_task.c
         libs/files/5_task.c
-        libs/files/6_task.c)
+        libs/files/6_task.c
+        libs/files/7_task.c)
 add_executable(37A 37A.c)
 add_executable(1020B 1020B.c)
 add_executable(672B 672B.c)
