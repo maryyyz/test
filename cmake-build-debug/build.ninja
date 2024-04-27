@@ -260,6 +260,12 @@ build CMakeFiles/1011A.dir/libs/files/2_task.c.o: C_COMPILER__1011A_unscanned_De
   OBJECT_DIR = CMakeFiles/1011A.dir
   OBJECT_FILE_DIR = CMakeFiles/1011A.dir/libs/files
 
+build CMakeFiles/1011A.dir/libs/files/3_task.c.o: C_COMPILER__1011A_unscanned_Debug /home/mari/CLionProjects/course/libs/files/3_task.c || cmake_object_order_depends_target_1011A
+  DEP_FILE = CMakeFiles/1011A.dir/libs/files/3_task.c.o.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/1011A.dir
+  OBJECT_FILE_DIR = CMakeFiles/1011A.dir/libs/files
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target 1011A
@@ -268,7 +274,7 @@ build CMakeFiles/1011A.dir/libs/files/2_task.c.o: C_COMPILER__1011A_unscanned_De
 #############################################
 # Link the executable 1011A
 
-build 1011A: C_EXECUTABLE_LINKER__1011A_Debug CMakeFiles/1011A.dir/1011A.c.o CMakeFiles/1011A.dir/libs/data_structures/vector/test2.c.o CMakeFiles/1011A.dir/libs/files/1_task.c.o CMakeFiles/1011A.dir/libs/files/2_task.c.o
+build 1011A: C_EXECUTABLE_LINKER__1011A_Debug CMakeFiles/1011A.dir/1011A.c.o CMakeFiles/1011A.dir/libs/data_structures/vector/test2.c.o CMakeFiles/1011A.dir/libs/files/1_task.c.o CMakeFiles/1011A.dir/libs/files/2_task.c.o CMakeFiles/1011A.dir/libs/files/3_task.c.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/1011A.dir
   POST_BUILD = :
