@@ -1,5 +1,23 @@
 #include <stdio.h>
 
+void generateTestFileForExpression(const char *filename) {
+    FILE *file = fopen(filename, "w");
+    if (file == NULL) {
+        printf("Failed to open file for writing\n");
+        return;
+    }
+
+    fprintf(file, "5 + 3 * 2\n");
+    fprintf(file, "10 - 2 * 3\n");
+    fprintf(file, "6 * 4 + 2\n");
+
+    fclose(file);
+}
+
+void generateTestFilesForExpression() {
+    generateTestFileForExpression("test_expression.txt");
+}
+
 int calculateExpression(const char *fileName) {
     FILE *file = fopen(fileName, "r+");
     if (file == NULL) {
@@ -81,6 +99,7 @@ void testCalculateExpression() {
 }
 
 int main() {
+    generateTestFilesForExpression();
     testCalculateExpression();
 
     return 0;
