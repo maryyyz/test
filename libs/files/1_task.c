@@ -1,5 +1,31 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
+
+void generateMatrix(int n, const char *filename) {
+    FILE *file = fopen(filename, "w");
+    if (file == NULL) {
+        printf("Failed to open file for writing\n");
+        return;
+    }
+
+    fprintf(file, "%d\n", n);
+
+    srand(time(NULL));
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            fprintf(file, "%d ", rand() % 10 + 1);
+        }
+        fprintf(file, "\n");
+    }
+
+    fclose(file);
+}
+
+void generateTestFiles() {
+    generateMatrix(3, "test_matrix.txt");
+    generateMatrix(2, "test_matrix2.txt");
+}
 
 int** readMatrixFromFile(FILE *file, int *n) {
     if (fscanf(file, "%d", n) != 1) {
@@ -130,7 +156,7 @@ void testTransformMatrixInFile() {
 }
 
 int main() {
+    generateTestFiles();
     testTransformMatrixInFile();
-
     return 0;
 }
