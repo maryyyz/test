@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 typedef struct {
     int order;
@@ -24,6 +25,44 @@ void free_matrix(Matrix *matrix) {
     }
     free(matrix->data);
 }
+
+void generateTestFileForProcessFile(const char *filename) {
+    FILE *file = fopen(filename, "wb");
+    if (file == NULL) {
+        printf("Error creating test file.\n");
+        return;
+    }
+
+    srand(time(NULL));
+
+    const int num_matrices = 3;
+
+    for (int k = 0; k < num_matrices; k++) {
+        int order = rand() % 4 + 2;
+
+        fwrite(&order, sizeof(int), 1, file);
+
+        Matrix matrix = create_matrix(order);
+
+        for (int i = 0; i < order; i++) {
+            for (int j = 0; j < order; j++) {
+                matrix.data[i][j] = rand() % 21 - 10;
+            }
+        }
+
+        for (int i = 0; i < order; i++) {
+            fwrite(matrix.data[i], sizeof(int), order, file);
+        }
+
+        free_matrix(&matrix);
+    }
+
+    int end_marker = 0;
+    fwrite(&end_marker, sizeof(int), 1, file);
+
+    fclose(file);
+}
+
 
 int is_symmetric(const Matrix *matrix) {
     for (int i = 0; i < matrix->order; i++) {
@@ -88,33 +127,8 @@ void process_file(const char *filename) {
 
 void testProcessFile() {
     const char *filename = "matrices.bin";
-    int test_data[3][3] = {{1, 2, 3},
-                           {4, 5, 6},
-                           {7, 8, 9}};
 
-    FILE *test_file = fopen(filename, "wb");
-    if (test_file == NULL) {
-        printf("Error creating test file.\n");
-        return;
-    }
-
-    int order = 3;
-    fwrite(&order, sizeof(int), 1, test_file);
-
-    for (int i = 0; i < order; i++) {
-        fwrite(test_data[i], sizeof(int), order, test_file);
-    }
-
-    order = 2;
-    fwrite(&order, sizeof(int), 1, test_file);
-
-    int test_data_2[2][2] = {{1, 2},
-                             {3, 4}};
-    for (int i = 0; i < order; i++) {
-        fwrite(test_data_2[i], sizeof(int), order, test_file);
-    }
-
-    fclose(test_file);
+    generateTestFileForProcessFile(filename);
 
     process_file(filename);
 }
