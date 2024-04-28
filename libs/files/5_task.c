@@ -1,6 +1,24 @@
 #include <stdio.h>
 #include <string.h>
 
+void generateTestFileForProcessFile(const char *filename) {
+    FILE *file = fopen(filename, "w");
+    if (file == NULL) {
+        printf("Failed to open file for writing\n");
+        return;
+    }
+
+    fprintf(file, "This is a test sentence.\n");
+    fprintf(file, "Another sentence with longer words.\n");
+    fprintf(file, "Short words.");
+
+    fclose(file);
+}
+
+void generateTestFilesForProcessFile() {
+    generateTestFileForProcessFile("input_text.txt");
+}
+
 char* find_longest_word(const char *line) {
     char *longest_word = NULL;
     char *word = strtok((char*)line, " ");
@@ -57,6 +75,7 @@ void test_process_file() {
 }
 
 int main() {
+    generateTestFilesForProcessFile();
     test_process_file();
     return 0;
 }
