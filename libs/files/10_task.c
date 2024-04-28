@@ -43,6 +43,41 @@ void write_items(const char *filename, Item *items, int item_count) {
     fclose(file);
 }
 
+void generateItemsFile(const char *filename) {
+    Item initial_items[] = {
+            {"Product A", 10.0f, 100.0f, 10},
+            {"Product B", 20.0f, 200.0f, 10},
+            {"Product C", 30.0f, 300.0f, 10},
+    };
+
+    int initial_item_count = sizeof(initial_items) / sizeof(Item);
+
+    write_items(filename, initial_items, initial_item_count);
+
+    printf("Items file generated successfully.\n");
+}
+
+void generateOrdersFile(const char *filename) {
+    Order orders[] = {
+            {"Product A", 5},
+            {"Product B", 10},
+            {"Product C", 15},
+    };
+
+    int order_count = sizeof(orders) / sizeof(Order);
+
+    FILE *file = fopen(filename, "wb");
+    if (file == NULL) {
+        perror("Error opening file");
+        return;
+    }
+
+    fwrite(orders, sizeof(Order), order_count, file);
+    fclose(file);
+
+    printf("Orders file generated successfully.\n");
+}
+
 void process_orders(const char *items_file, const char *orders_file) {
     Item *items = NULL;
     int item_count;
@@ -81,24 +116,9 @@ void test_processing() {
     const char *items_file = "items.bin";
     const char *orders_file = "orders.bin";
 
-    Item initial_items[] = {
-            {"Product A", 10.0f, 100.0f, 10},
-            {"Product B", 20.0f, 200.0f, 10},
-            {"Product C", 30.0f, 300.0f, 10},
-    };
+    generateItemsFile(items_file);
 
-    int initial_item_count = sizeof(initial_items) / sizeof(Item);
-
-    write_items(items_file, initial_items, initial_item_count);
-
-    Order orders[] = {
-            {"Product A", 5},
-            {"Product B", 10},
-            {"Product C", 15},
-    };
-
-    int order_count = sizeof(orders) / sizeof(Order);
-    write_items(orders_file, (Item *)orders, order_count);
+    generateOrdersFile(orders_file);
 
     process_orders(items_file, orders_file);
 

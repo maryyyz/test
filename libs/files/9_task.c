@@ -84,23 +84,8 @@ void write_top_athletes(const char *filename, Athlete *athletes, int num_athlete
 
 void testProcessFile() {
     const char *filename = "athletes.bin";
-    int num_athletes = 5;
-    Athlete test_data[] = {
-            {"John Doe", 100},
-            {"Jane Smith", 150},
-            {"Michael Johnson", 120},
-            {"Emma Lee", 90},
-            {"Chris Brown", 110}
-    };
 
-    FILE *test_file = fopen(filename, "wb");
-    if (test_file == NULL) {
-        printf("Error creating test file.\n");
-        return;
-    }
-
-    fwrite(test_data, sizeof(Athlete), num_athletes, test_file);
-    fclose(test_file);
+    generateTestFileForReadAthletes(filename);
 
     int num_athletes_read;
     Athlete *athletes = read_athletes(filename, &num_athletes_read);
