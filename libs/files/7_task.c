@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 int compare(const void *a, const void *b) {
     return (*(int *)a - *(int *)b);
@@ -27,50 +28,35 @@ void move_positive_first(int *arr, int size) {
     }
 }
 
-void process_file(const char *filename) {
-    FILE *file = fopen(filename, "rb+");
+void generateTestFileForProcessFile(const char *filename) {
+    const int num_elements = 20;
+    int *test_data = malloc(num_elements * sizeof(int));
+
+    srand(time(NULL));
+
+    for (int i = 0; i < num_elements; i++) {
+        test_data[i] = rand() % 101 - 50;
+    }
+
+    FILE *file = fopen(filename, "wb");
     if (file == NULL) {
-        printf("Error opening file.\n");
+        printf("Error creating test file.\n");
+        free(test_data);
         return;
     }
 
-    fseek(file, 0, SEEK_END);
-    long file_size = ftell(file);
-    fseek(file, 0, SEEK_SET);
-
-    int num_elements = file_size / sizeof(int);
-
-    int *arr = (int *)malloc(num_elements * sizeof(int));
-
-    fread(arr, sizeof(int), num_elements, file);
-
-    qsort(arr, num_elements, sizeof(int), compare);
-
-    move_positive_first(arr, num_elements);
-
-    rewind(file);
-
-    fwrite(arr, sizeof(int), num_elements, file);
-
-    free(arr);
+    fwrite(test_data, sizeof(int), num_elements, file);
     fclose(file);
 
-    printf("File processed successfully.\n");
+    free(test_data);
 }
+
+void process_file(const char *filename);
 
 void testProcessFile() {
     const char *filename = "numbers.bin";
-    int test_data[] = {3, -1, 5, -2, 4, -3};
-    int num_elements = sizeof(test_data) / sizeof(test_data[0]);
 
-    FILE *test_file = fopen(filename, "wb");
-    if (test_file == NULL) {
-        printf("Error creating test file.\n");
-        return;
-    }
-
-    fwrite(test_data, sizeof(int), num_elements, test_file);
-    fclose(test_file);
+    generateTestFileForProcessFile(filename);
 
     process_file(filename);
 }
