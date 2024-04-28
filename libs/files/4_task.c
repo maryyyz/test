@@ -1,6 +1,24 @@
 #include <stdio.h>
 #include <string.h>
 
+void generateTestFileForFilterWords(const char *filename) {
+    FILE *file = fopen(filename, "w");
+    if (file == NULL) {
+        printf("Failed to open file for writing\n");
+        return;
+    }
+
+    fprintf(file, "apple banana orange pineapple grape\n");
+    fprintf(file, "kiwi strawberry watermelon lemon\n");
+    fprintf(file, "apple pie cherry apricot");
+
+    fclose(file);
+}
+
+void generateTestFilesForFilterWords() {
+    generateTestFileForFilterWords("input_words.txt");
+}
+
 void filter_words(const char *input_file, const char *output_file, const char *sequence) {
     FILE *input = fopen(input_file, "r");
     FILE *output = fopen(output_file, "w");
@@ -58,6 +76,7 @@ void test_filter_words() {
 }
 
 int main() {
+    generateTestFilesForFilterWords();
     test_filter_words();
     return 0;
 }
