@@ -5,6 +5,30 @@ typedef struct {
     float coefficient;
 } Polynomial;
 
+void generateTestFileForRemovePolynomials(const char *filename, const Polynomial *polynomials, size_t count) {
+    FILE *file = fopen(filename, "wb");
+    if (file == NULL) {
+        printf("Failed to open file for writing\n");
+        return;
+    }
+
+    fwrite(polynomials, sizeof(Polynomial), count, file);
+
+    fclose(file);
+}
+
+void generateTestFilesForRemovePolynomials() {
+    const char *filename = "polynomials.bin";
+    const Polynomial polys[] = {
+            {3, 2.0},
+            {2, 1.0},
+            {1, -3.0},
+            {0, 4.0}
+    };
+    size_t count = sizeof(polys) / sizeof(polys[0]);
+    generateTestFileForRemovePolynomials(filename, polys, count);
+}
+
 float power(float x, int n) {
     float result = 1.0;
 
@@ -63,6 +87,7 @@ void testRemovePolynomialsWithRoot() {
 }
 
 int main() {
+    generateTestFilesForRemovePolynomials();
     testRemovePolynomialsWithRoot();
     return 0;
 }
