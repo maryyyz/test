@@ -1,4 +1,26 @@
 #include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
+
+void generateTestFileForConvert(const char *filename, int count) {
+    FILE *file = fopen(filename, "w");
+    if (file == NULL) {
+        printf("Failed to open file for writing\n");
+        return;
+    }
+
+    srand(time(NULL));
+    for (int i = 0; i < count; i++) {
+        double number = (double)(rand()) / RAND_MAX * 100.0;
+        fprintf(file, "%.6f\n", number);
+    }
+
+    fclose(file);
+}
+
+void generateTestFilesForConvert() {
+    generateTestFileForConvert("test_fixed.txt", 3);
+}
 
 void convertFixedToFloat(const char *inputFileName, const char *outputFileName) {
     FILE *inputFile = fopen(inputFileName, "r");
@@ -50,6 +72,7 @@ void testConvertFixedToFloat() {
 }
 
 int main() {
+    generateTestFilesForConvert();
     testConvertFixedToFloat();
 
     return 0;
