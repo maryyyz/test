@@ -9,6 +9,28 @@ typedef struct {
     int best_result;
 } Athlete;
 
+void generateTestFileForReadAthletes(const char *filename) {
+    const int num_athletes = 5;
+    Athlete test_data[] = {
+            {"John Doe", 100},
+            {"Jane Smith", 150},
+            {"Michael Johnson", 120},
+            {"Emma Lee", 90},
+            {"Chris Brown", 110}
+    };
+
+    FILE *file = fopen(filename, "wb");
+    if (file == NULL) {
+        printf("Error creating test file.\n");
+        return;
+    }
+
+    fwrite(test_data, sizeof(Athlete), num_athletes, file);
+    fclose(file);
+
+    printf("Test file generated successfully.\n");
+}
+
 Athlete* read_athletes(const char *filename, int *num_athletes) {
     FILE *file = fopen(filename, "rb");
     if (file == NULL) {
