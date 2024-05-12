@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "main"
+			"path" : "course"
 		}
 	],
 	"backtrace" : 1,
@@ -10,7 +10,8 @@
 	{
 		"commands" : 
 		[
-			"add_executable"
+			"add_executable",
+			"target_link_libraries"
 		],
 		"files" : 
 		[
@@ -24,7 +25,19 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 37,
+				"line" : 6,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 44,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 45,
 				"parent" : 0
 			}
 		]
@@ -53,7 +66,18 @@
 			]
 		}
 	],
-	"id" : "main::@6890427a1f51a3e7e1df",
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 2,
+			"id" : "data_structures::@396ab3a44f37844d7cdb"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "algorithms::@4f84be16bc75261b2db5"
+		}
+	],
+	"id" : "course::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -65,12 +89,22 @@
 			{
 				"fragment" : "",
 				"role" : "flags"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "libs/data_structures/libdata_structures.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "libs/algorithms/libalgorithms.a",
+				"role" : "libraries"
 			}
 		],
 		"language" : "C"
 	},
-	"name" : "main",
-	"nameOnDisk" : "main",
+	"name" : "course",
+	"nameOnDisk" : "course",
 	"paths" : 
 	{
 		"build" : ".",
@@ -91,7 +125,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "main.c",
+			"path" : "1056A.c",
 			"sourceGroupIndex" : 0
 		}
 	],

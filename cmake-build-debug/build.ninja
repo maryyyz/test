@@ -350,6 +350,12 @@ build CMakeFiles/1011A.dir/libs/files/20lab/task_7.c.o: C_COMPILER__1011A_unscan
   OBJECT_DIR = CMakeFiles/1011A.dir
   OBJECT_FILE_DIR = CMakeFiles/1011A.dir/libs/files/20lab
 
+build CMakeFiles/1011A.dir/libs/files/20lab/task_8.c.o: C_COMPILER__1011A_unscanned_Debug /home/mari/CLionProjects/course/libs/files/20lab/task_8.c || cmake_object_order_depends_target_1011A
+  DEP_FILE = CMakeFiles/1011A.dir/libs/files/20lab/task_8.c.o.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/1011A.dir
+  OBJECT_FILE_DIR = CMakeFiles/1011A.dir/libs/files/20lab
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target 1011A
@@ -358,7 +364,7 @@ build CMakeFiles/1011A.dir/libs/files/20lab/task_7.c.o: C_COMPILER__1011A_unscan
 #############################################
 # Link the executable 1011A
 
-build 1011A: C_EXECUTABLE_LINKER__1011A_Debug CMakeFiles/1011A.dir/1011A.c.o CMakeFiles/1011A.dir/libs/data_structures/vector/test2.c.o CMakeFiles/1011A.dir/libs/files/1_task.c.o CMakeFiles/1011A.dir/libs/files/2_task.c.o CMakeFiles/1011A.dir/libs/files/3_task.c.o CMakeFiles/1011A.dir/libs/files/4_task.c.o CMakeFiles/1011A.dir/libs/files/5_task.c.o CMakeFiles/1011A.dir/libs/files/6_task.c.o CMakeFiles/1011A.dir/libs/files/7_task.c.o CMakeFiles/1011A.dir/libs/files/8_task.c.o CMakeFiles/1011A.dir/libs/files/9_task.c.o CMakeFiles/1011A.dir/libs/files/10_task.c.o CMakeFiles/1011A.dir/libs/files/20lab/task_1.c.o CMakeFiles/1011A.dir/libs/files/20lab/task_2.c.o CMakeFiles/1011A.dir/libs/files/20lab/task_3.c.o CMakeFiles/1011A.dir/libs/files/20lab/task_4.c.o CMakeFiles/1011A.dir/libs/files/20lab/task_5.c.o CMakeFiles/1011A.dir/libs/files/20lab/task_6.c.o CMakeFiles/1011A.dir/libs/files/20lab/task_7.c.o
+build 1011A: C_EXECUTABLE_LINKER__1011A_Debug CMakeFiles/1011A.dir/1011A.c.o CMakeFiles/1011A.dir/libs/data_structures/vector/test2.c.o CMakeFiles/1011A.dir/libs/files/1_task.c.o CMakeFiles/1011A.dir/libs/files/2_task.c.o CMakeFiles/1011A.dir/libs/files/3_task.c.o CMakeFiles/1011A.dir/libs/files/4_task.c.o CMakeFiles/1011A.dir/libs/files/5_task.c.o CMakeFiles/1011A.dir/libs/files/6_task.c.o CMakeFiles/1011A.dir/libs/files/7_task.c.o CMakeFiles/1011A.dir/libs/files/8_task.c.o CMakeFiles/1011A.dir/libs/files/9_task.c.o CMakeFiles/1011A.dir/libs/files/10_task.c.o CMakeFiles/1011A.dir/libs/files/20lab/task_1.c.o CMakeFiles/1011A.dir/libs/files/20lab/task_2.c.o CMakeFiles/1011A.dir/libs/files/20lab/task_3.c.o CMakeFiles/1011A.dir/libs/files/20lab/task_4.c.o CMakeFiles/1011A.dir/libs/files/20lab/task_5.c.o CMakeFiles/1011A.dir/libs/files/20lab/task_6.c.o CMakeFiles/1011A.dir/libs/files/20lab/task_7.c.o CMakeFiles/1011A.dir/libs/files/20lab/task_8.c.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/1011A.dir
   POST_BUILD = :
