@@ -70,7 +70,8 @@
 				18,
 				19,
 				20,
-				21
+				21,
+				22
 			]
 		}
 	],
@@ -124,7 +125,8 @@
 				18,
 				19,
 				20,
-				21
+				21,
+				22
 			]
 		}
 	],
@@ -260,6 +262,12 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "libs/files/20lab/task_10.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "libs/files/20lab/task_11.c",
 			"sourceGroupIndex" : 0
 		}
 	],
