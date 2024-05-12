@@ -23,7 +23,8 @@ add_executable(1011A 1011A.c
         libs/files/9_task.c
         libs/files/10_task.c
         libs/files/20lab/task_1.c
-        libs/files/20lab/task_2.c)
+        libs/files/20lab/task_2.c
+        libs/files/20lab/task_3.c)
 add_executable(37A 37A.c)
 add_executable(1020B 1020B.c)
 add_executable(672B 672B.c)
